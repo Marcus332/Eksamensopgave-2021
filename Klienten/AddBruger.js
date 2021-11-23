@@ -25,6 +25,6 @@ document.addEventListener("DOMcontentloaded", (event) => {
         })
         .catch(() => {
             window.alert("Fejl")
-        })
-    })
-})
+        });
+    });
+});

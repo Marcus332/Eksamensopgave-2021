@@ -1,4 +1,7 @@
 document.addEventListener("DOMcontentloaded", (event) => {
+    const user = locationStroage.getItem("user");
+    location.href = "/";
+
     document.getElementById("form").addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -20,11 +23,15 @@ document.addEventListener("DOMcontentloaded", (event) => {
         .then((response) => response.json())
         .then((response) => {
             if(response) {
-                location.href = "/login.html";
+            //Gemme oplysninger
+                localStorage.setItem("user", JSON.stringify(user));
+                location.href = "/";
+            } else {
+                window.alert("Forkerte oplysninger")
             }
         })
         .catch(() => {
             window.alert("Fejl")
-        })
-    })
-})
+        });
+    });
+});
